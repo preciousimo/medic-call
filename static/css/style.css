@@ -13,7 +13,7 @@ html,body{
 
 /* Navbar */
 #icon-nav {
-    /* text-align: center;  */
+    text-align: center; 
     color: #fff; 
     margin-left: 25px;
 }
@@ -41,4 +41,9 @@ html,body{
 #footer--div > a {
     color: #0dcaf0;
     text-decoration: none;
+}
+
+/* Login */
+#btn-enter {
+    width: 90px;
 }

@@ -18,11 +18,15 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
                 <div class="col-sm" >
                     <a class="navbar-brand flex-grow-1" id="icon-nav">
+                        {% block nav %}
                         <i class="fas fa-briefcase-medical" ></i>&nbsp;&nbsp;Medic Care
+                        {% endblock nav %}
                     </a>
                 </div>
                 <div class="col-sm" >
-                    <a href="#" class="btn btn-outline-info btn-sm border-light" id="btn-nav">Login</a>
+                    {% block btn-nav %}
+                    <a href="{% url 'backend' %}" class="btn btn-outline-info btn-sm border-light" id="btn-nav">Login</a>
+                    {% endblock btn-nav %}
                 </div>
             </nav>
         </header>

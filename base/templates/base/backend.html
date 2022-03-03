@@ -1,5 +1,13 @@
 {% extends 'main.html' %}
 
+{% block nav %}
+<i class="fas fa-user"></i>&nbsp;&nbsp;Patients
+{% endblock nav %}
+
+{% block btn-nav %}
+<a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm border-light text-light" id="btn-nav">Logout</a>
+{% endblock btn-nav %}
+
 {% block content %}
 
 <h1 class="text-danger text-center" >Backend Page!</h1>
