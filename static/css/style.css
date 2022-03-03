@@ -1,0 +1,44 @@
+/* General Configuration */
+html,body{
+    background: url("/static/images/med-3.jpg");
+    background-position: center 0px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height:100%;
+    margin: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Navbar */
+#icon-nav {
+    /* text-align: center;  */
+    color: #fff; 
+    margin-left: 25px;
+}
+#btn-nav {
+    width: 90px;
+    float: right;
+    margin-left: 25px;
+}
+
+/* Footer */
+.wrapper {
+    min-height: 100%;
+    margin-bottom: -50px;
+}
+#footer, .push{
+    height: 50px;
+    font-size: 13px;
+}
+#footer--div {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#footer--div > i {
+    font-size: 15px;
+}
+#footer--div > a {
+    color: #0dcaf0;
+    text-decoration: none;
+}
