@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
 from django.contrib.auth import authenticate, login, logout
@@ -57,5 +57,6 @@ def add_patient(request):
             patient.note = request.POST.get('note')
             patient.save()
             messages.success(request, "Patient added successfully!")
+            return HttpResponseRedirect('/backend')
     else:
         return render(request, "base/add.html")

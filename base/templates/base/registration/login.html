@@ -1,8 +1,8 @@
 {% extends 'main.html' %}
 
-{% block nav %}
+{% block nav-content %}
 <i class="fas fa-stethoscope"></i>&nbsp;&nbsp;Login
-{% endblock nav %}
+{% endblock nav-content %}
 
 {% block btn-nav %}
 <a href="{% url 'frontend' %}" class="btn btn-outline-primary btn-sm border-light text-light" id="btn-nav">Go back</a>
@@ -14,7 +14,7 @@
         <span class="btn btn-outline-dark mt-3">
             <i class="fas fa-lock"></i>&nbsp;&nbsp;RESTRICTED ACCESS
         </span>
-        <form method="POST" autocomplete="off" novalidate>
+        <form action="{% url 'login' %}" method="POST" autocomplete="off" novalidate >
             {% csrf_token %}
             <div class="input-grid mb-3 mt-5">
                 <span class="input-group-text">
@@ -28,6 +28,7 @@
                 </span>
                 <input type="password" class="form-control" name="password" placeholder="Password" />
             </div>
+            <a></a>
             <input class="btn btn-primary btn-sm mt-4 mb-3" type="submit" value="Enter" id="btn-enter" />
         </form>
     </div>
@@ -39,6 +40,10 @@
         swal("Denied!","Enter your data correctly.", "Error");
     </script>
     {% endif %}
+
+    <center id="heart">
+        <i class="text-primary fas fa-heartbeat fa-10x blink_me"></i>
+    </center>
 
 </div>
 

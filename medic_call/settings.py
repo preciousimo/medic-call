@@ -133,3 +133,6 @@ STATICFILES_DIRS = [
 
 # STATIC_ROOT =  
 MEDIA_ROOT = BASE_DIR / 'static/images'
+
+# LOGIN_REDIRECT_URL = 'backend'
+# LOGOUT_REDIRECT_URL = 'frontend'
