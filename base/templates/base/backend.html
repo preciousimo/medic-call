@@ -20,14 +20,71 @@
         </span>
     </div>
 
+    <form action="" method="GET">
+        <div class="input-group input-group-sm mb-3 mt-4">
+            <input type="text" name="q" class="form-control" placeholder="Search for...">
+            <button class="btn btn-secondary"><i class="fas fa-search"></i></button>
+            <a href="{% url 'backend' %}" class="btn btn-dark" style="margin-left: 2px;"><i
+                    class="fas fa-sync-alt"></i></a>
+        </div>
+    </form>
+
+    <center>
+        <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
+            <thead class="table-primary">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Registered</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </center>
+
+    <nav class="mt-4">
+
+        <ul class="pagination justify-content-left">
+
+            <a href="#" class="btn btn-outline-primary mb-4"
+                style="width: 60px; border-radius: 1px; border: 1px solid #d3d3d3;">First</a>
+            <li class="page-item"><a href="#" class="page-link"><i class="fas fa-angle-double-left"></i></a></li>
+
+            <li class="page-item disabled"></li>
+
+            <li class="page-item active"><span class="page-link"><span class="sr-only"></span></span></li>
+
+            <li class="page-item"><a href="#" class="page-link"></a></li>
+
+            <li class="page-item"><a href="#" class="page-link"><i class="fas fa-angle-double-right"></i></a></li>
+
+            <a href="#" class="btn btn-outline-primary mb-4"
+                style="width: 60px; border-radius: 1px; border: 1px solid #d3d3d3; border-left: none;">Last</a>
+
+            <li class="page-item disabled"></li>
+
+        </ul>
+
+    </nav>
+
     {% for message in messages %}
-        {% if message.tags == 'success' %}
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script>
-            var m = "{{ message }}";
-            swal("Perfect !", m, "success")
-        </script>
-        {% endif %}
+    {% if message.tags == 'success' %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var m = "{{ message }}";
+        swal("Perfect !", m, "success")
+    </script>
+    {% endif %}
     {% endfor %}
 </div>
 {% endblock content %}
