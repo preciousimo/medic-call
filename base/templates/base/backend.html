@@ -33,58 +33,77 @@
         <table class="table table-bordered table-sm mt-4" style="text-align: center; font-size: 14px;">
             <thead class="table-primary">
                 <tr>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Email</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>Registered</th>
-                    <th>Actions</th>
+                    <th style="width: 21%">Name</th>
+                    <th style="width: 15%">Phone</th>
+                    <th style="width: 21%">Email</th>
+                    <th style="width: 8%">Age</th>
+                    <th style="width: 7%">Gender</th>
+                    <th style="width: 18%">Registered</th>
+                    <th style="width: 10%" colspan="2" >Actions</th>
                 </tr>
             </thead>
+            {% for patient in patients %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.phone }}</td>
+                <td>{{ patient.email }}</td>
+                <td>{{ patient.age }}</td>
+                <td>{{ patient.gender }}</td>
+                <td>{{ patient.created_at | date:'d/m/Y (H:i)' }}</td>
+                <td>
+                    <a href="#" class="btn btn-primary" title="Edit patient">
+                        <li class="fas fa-pen"></li>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-danger" title="Delete patient">
+                        <li class="fas fa-trash-alt"></li>
+                    </a>
+                </td>
             </tr>
+            {% endfor %}
         </table>
     </center>
 
     <nav class="mt-4">
-
-        <ul class="pagination justify-content-left">
-
-            <a href="#" class="btn btn-outline-primary mb-4"
+        {% if patients.has_other_pages %}
+        <ul class="pagination justify-content-right" style="float: right;">
+            {% if patients.has_previous %}
+            <a href="?page=1" class="btn btn-outline-primary mb-4"
                 style="width: 60px; border-radius: 1px; border: 1px solid #d3d3d3;">First</a>
-            <li class="page-item"><a href="#" class="page-link"><i class="fas fa-angle-double-left"></i></a></li>
-
+            <li class="page-item"><a href="?page={{ patients.previous_page_number }}" class="page-link"><i class="fas fa-angle-double-left"></i></a></li>
+            {% else %}
             <li class="page-item disabled"></li>
+            {% endif %}
+            
+            {% for i in patients.paginator.page_range %}
+                {% if patients.number == i %}
+                <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only"></span></span></li>
+                {% else %}
+                <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+                {% endif %}
+            {% endfor %}
 
-            <li class="page-item active"><span class="page-link"><span class="sr-only"></span></span></li>
-
-            <li class="page-item"><a href="#" class="page-link"></a></li>
-
-            <li class="page-item"><a href="#" class="page-link"><i class="fas fa-angle-double-right"></i></a></li>
-
-            <a href="#" class="btn btn-outline-primary mb-4"
+            {% if patients.has_next %}
+            <li class="page-item"><a href="?page={{ patients.next_page_number }}" class="page-link"><i class="fas fa-angle-double-right"></i></a></li>
+            <a href="?page={{ patients.paginator.num_pages }}" class="btn btn-outline-primary mb-4"
                 style="width: 60px; border-radius: 1px; border: 1px solid #d3d3d3; border-left: none;">Last</a>
-
+            {% else %}
             <li class="page-item disabled"></li>
-
+            {% endif %}
         </ul>
+        {% endif %}
 
     </nav>
 
     {% for message in messages %}
-    {% if message.tags == 'success' %}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        var m = "{{ message }}";
-        swal("Perfect !", m, "success")
-    </script>
-    {% endif %}
+        {% if message.tags == 'success' %}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            var m = "{{ message }}";
+            swal("Perfect !", m, "success")
+        </script>
+        {% endif %}
     {% endfor %}
 </div>
 {% endblock content %}

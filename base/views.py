@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from base.models import Patient 
+from django.db.models import Q
+from django.core.paginator import Paginator
 # Create your views here.
 
 def loginPage(request):
@@ -42,7 +44,18 @@ def frontend(request):
 
 @login_required(login_url='login')
 def backend(request):
-    return render(request, "base/backend.html")
+    if 'q' in request.GET:
+        q = request.GET['q']
+        all_patient_list = Patient.objects.filter(
+            Q(name__icontains=q) | Q(phone__icontains=q) | Q(email__icontains=q) | Q(age__icontains=q) | Q(gender__icontains=q) | Q(note__icontains=q)
+        ).order_by('-created_at')
+    else:
+        all_patient_list = Patient.objects.all().order_by('-created_at')
+    paginator = Paginator(all_patient_list, 5)
+    page = request.GET.get('page')
+    all_patient = paginator.get_page(page)
+
+    return render(request, "base/backend.html", {"patients":all_patient})
 
 @login_required(login_url='login')
 def add_patient(request):
@@ -60,3 +73,4 @@ def add_patient(request):
             return HttpResponseRedirect('/backend')
     else:
         return render(request, "base/add.html")
+        
