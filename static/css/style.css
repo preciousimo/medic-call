@@ -36,3 +36,7 @@ html,body{
     transform: translate(-50%, -50%);
     font-size: 20px;
 }
+
+.side-label{
+    width: 75px;
+}
