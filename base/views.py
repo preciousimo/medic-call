@@ -79,3 +79,19 @@ def patient(request, patient_id):
     patient = Patient.objects.get(id = patient_id)
     if patient != None:
         return render(request, "base/edit.html", {'patient':patient})
+
+@login_required(login_url='login')
+def edit_patient(request):
+    if request.method == "POST":
+        patient = Patient.objects.get(id = request.POST.get('id'))
+        if patient != None:
+
+            patient.name = request.POST.get('phone')
+            patient.name = request.POST.get('email')
+            patient.name = request.POST.get('age')
+            patient.name = request.POST.get('gender')
+            patient.name = request.POST.get('note')
+            patient.save()
+
+            messages.success(request, "Patient updated successfully !")
+            return HttpResponseRedirect('/backend')

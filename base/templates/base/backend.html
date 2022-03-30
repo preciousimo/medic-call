@@ -22,7 +22,7 @@
 
     <form action="" method="GET">
         <div class="input-group input-group-sm mb-3 mt-4">
-            <input type="text" name="q" class="form-control" placeholder="Search for...">
+            <input type="text" name="q" class="form-control" placeholder="Search for..." value="{{ request.GET.q }}">
             <button class="btn btn-secondary"><i class="fas fa-search"></i></button>
             <a href="{% url 'backend' %}" class="btn btn-dark" style="margin-left: 2px;"><i
                     class="fas fa-sync-alt"></i></a>
@@ -42,6 +42,7 @@
                     <th style="width: 10%" colspan="2" >Actions</th>
                 </tr>
             </thead>
+            <!-- Data from backend -->>
             {% for patient in patients %}
             <tr>
                 <td>{{ patient.name }}</td>
