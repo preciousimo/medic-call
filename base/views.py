@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
+from django.views.decorators.cache import cache_control
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from base.models import Patient 
@@ -42,6 +43,7 @@ def logoutUser(request):
 def frontend(request):
     return render(request, "base/frontend.html")
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='login')
 def backend(request):
     if 'q' in request.GET:
@@ -57,6 +59,7 @@ def backend(request):
 
     return render(request, "base/backend.html", {"patients":all_patient})
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='login')
 def add_patient(request):
     if request.method == 'POST':
@@ -74,12 +77,14 @@ def add_patient(request):
     else:
         return render(request, "base/add.html")
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='login')
 def patient(request, patient_id):
     patient = Patient.objects.get(id = patient_id)
     if patient != None:
         return render(request, "base/edit.html", {'patient':patient})
 
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='login')
 def edit_patient(request):
     if request.method == "POST":
