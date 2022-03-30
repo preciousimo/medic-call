@@ -77,6 +77,7 @@ def add_patient(request):
     else:
         return render(request, "base/add.html")
 
+#Function to access patient individually
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='login')
 def patient(request, patient_id):
@@ -84,6 +85,7 @@ def patient(request, patient_id):
     if patient != None:
         return render(request, "base/edit.html", {'patient':patient})
 
+#Function to edit patient
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='login')
 def edit_patient(request):
@@ -100,3 +102,13 @@ def edit_patient(request):
 
             messages.success(request, "Patient updated successfully !")
             return HttpResponseRedirect('/backend')
+
+#Function to delete patient
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url='login')
+def delete_patient(request, patient_id):
+    patient = Patient.objects.get(id = patient_id)
+    patient.delete()
+
+    messages.success(request, "Patient removed successfully !")
+    return HttpResponseRedirect('/backend')

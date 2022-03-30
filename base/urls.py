@@ -17,4 +17,7 @@ urlpatterns = [
     path('patient/<str:patient_id>/', views.patient, name="patient"),
     #Path to edit patient details
      path('edit_patient/', views.edit_patient, name="edit_patient"),
+     
+    #Path to eelete the patient
+    path('delete_patient/<str:patient_id>/', views.delete_patient, name="delete_patient"),
 ]
