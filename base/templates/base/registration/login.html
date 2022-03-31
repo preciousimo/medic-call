@@ -1,13 +1,19 @@
 {% extends 'main.html' %}
 
+<!-- Title on the Browser tab -->
+{% block title %} Login {% endblock title %}
+
+<!-- Navbar content (icon + title) -->
 {% block nav-content %}
 <i class="fas fa-stethoscope"></i>&nbsp;&nbsp;Login
 {% endblock nav-content %}
 
+<!-- Button in navbar -->
 {% block btn-nav %}
 <a href="{% url 'frontend' %}" class="btn btn-outline-primary btn-sm border-light text-light" id="btn-nav">Go back</a>
 {% endblock btn-nav %}
 
+<!-- Page Content -->
 {% block content %}
 <div class="container mt-5">
     <div class="card p-3 border-dark">

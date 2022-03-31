@@ -1,5 +1,7 @@
 {% extends 'main.html' %}
 
+{% block title %} All Patients {% endblock title %}
+
 {% block nav-content %}
 <i class="fas fa-hospital-user"></i>&nbsp;&nbsp;Patients
 {% endblock nav-content %}
@@ -44,7 +46,7 @@
             </thead>
             <!-- Data from backend -->>
             {% for patient in patients %}
-            <tr>
+            <tr id="chk_td">
                 <td>{{ patient.name }}</td>
                 <td>{{ patient.phone }}</td>
                 <td>{{ patient.email }}</td>
@@ -107,4 +109,8 @@
         {% endif %}
     {% endfor %}
 </div>
+
+<!-- If no patient, show this span (message) -->
+<span class="text-danger" id="no-data">
+</span>
 {% endblock content %}
