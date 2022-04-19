@@ -1,15 +1,28 @@
 {% extends 'main.html' %}
 
+<!-- Title on thex Browser tab -->
 {% block title %} Add Patient {% endblock title %}
 
+<!-- Navbar content {icon + title} -->
 {% block nav-content %}
 <i class="fas fa-user-plus"></i>&nbsp;&nbsp;Add Patient
 {% endblock nav-content %}
 
+<!-- TIME -->
+{% block time %}
+<div class="col-sm">
+    <center>
+        <span id="clock" style="color: #89cff0;"></span>
+    </center>
+</div>
+{% endblock time %}
+
+<!-- Button in navbar -->
 {% block btn-nav %}
 <a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm border-light text-light" id="btn-nav">Logout</a>
 {% endblock btn-nav %}
 
+<!-- Page content -->
 {% block content %}
 <div class="container">
     <div class="row">
