@@ -38,7 +38,6 @@
         </a>
         <span>
             Welcome: <strong><span class="text-primary">{{ user.get_username }}</span></strong>
-            <!-- {% now "H:i:s" %} -->
         </span>
     </div>
 
@@ -66,7 +65,7 @@
                     <th style="width: 10%" colspan="2">Actions</th>
                 </tr>
             </thead>
-            <!-- Data from backend -->>
+            <!-- Data from backend -->
             {% for patient in patients %}
             <tr id="chk_td">
                 <td>{{ patient.name }}</td>
@@ -81,15 +80,46 @@
                     </a>
                 </td>
                 <td>
-                    <a href="/delete_patient/{{ patient.id }}" class="btn btn-danger" title="Delete patient">
+                    <a class="btn btn-secondary" title="Delete patient"
+                        data-toggle="modal" data-target="#deleteModal{{ patient.pk }}">
                         <li class="fas fa-trash-alt"></li>
                     </a>
                 </td>
             </tr>
+            <!-- Modal {delete confirmation} -->
+            <div class="modal fade" id="deleteModal{{ patient.pk }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel"><i
+                                    class="fas fa-trash-alt"></i>&nbsp;&nbsp;Delete Patient</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-center text-danger"><i class="fas fa-times-circle fa-5x mb-4 mt-2"></i>
+                            </div>
+                            <div class="text-center text-danger">
+                                <span>DO YOU WANT TO DELETE THIS PATIENT ?</span>
+                                <div class="text-dark mt-3 mb-2">Patient: <strong>{{ patient.name }}</strong></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-small"
+                                data-dismiss="modal">Cancel</button>
+                            <a href="/delete_patient/{{ patient.id }}" type="button" class="btn btn-primary btn-small">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             {% endfor %}
         </table>
     </center>
 
+
+    <!-- Pagination -->
     <nav class="mt-4">
         {% if patients.has_other_pages %}
         <ul class="pagination justify-content-right" style="float: right;">
