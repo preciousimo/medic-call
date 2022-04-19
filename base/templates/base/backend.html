@@ -19,7 +19,8 @@
 
 <!-- Button in navbar -->
 {% block btn-nav %}
-<a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm border-light text-light" id="btn-nav">Logout</a>
+<a class="btn btn-outline-danger btn-sm border-light text-light" id="btn-nav" data-toggle="modal"
+    data-target="#logoutModal">Logout</a>
 {% endblock btn-nav %}
 
 <!-- Footer {color} -->
@@ -62,7 +63,7 @@
                     <th style="width: 8%">Age</th>
                     <th style="width: 7%">Gender</th>
                     <th style="width: 18%">Registered</th>
-                    <th style="width: 10%" colspan="2" >Actions</th>
+                    <th style="width: 10%" colspan="2">Actions</th>
                 </tr>
             </thead>
             <!-- Data from backend -->>
@@ -95,21 +96,23 @@
             {% if patients.has_previous %}
             <a href="?page=1" class="btn btn-outline-primary mb-4"
                 style="width: 60px; border-radius: 1px; border: 1px solid #d3d3d3;">First</a>
-            <li class="page-item"><a href="?page={{ patients.previous_page_number }}" class="page-link"><i class="fas fa-angle-double-left"></i></a></li>
+            <li class="page-item"><a href="?page={{ patients.previous_page_number }}" class="page-link"><i
+                        class="fas fa-angle-double-left"></i></a></li>
             {% else %}
             <li class="page-item disabled"></li>
             {% endif %}
-            
+
             {% for i in patients.paginator.page_range %}
-                {% if patients.number == i %}
-                <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only"></span></span></li>
-                {% else %}
-                <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
-                {% endif %}
+            {% if patients.number == i %}
+            <li class="page-item active"><span class="page-link">{{ i }}<span class="sr-only"></span></span></li>
+            {% else %}
+            <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+            {% endif %}
             {% endfor %}
 
             {% if patients.has_next %}
-            <li class="page-item"><a href="?page={{ patients.next_page_number }}" class="page-link"><i class="fas fa-angle-double-right"></i></a></li>
+            <li class="page-item"><a href="?page={{ patients.next_page_number }}" class="page-link"><i
+                        class="fas fa-angle-double-right"></i></a></li>
             <a href="?page={{ patients.paginator.num_pages }}" class="btn btn-outline-primary mb-4"
                 style="width: 60px; border-radius: 1px; border: 1px solid #d3d3d3; border-left: none;">Last</a>
             {% else %}
@@ -121,13 +124,13 @@
     </nav>
 
     {% for message in messages %}
-        {% if message.tags == 'success' %}
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script>
-            var m = "{{ message }}";
-            swal("Perfect !", m, "success")
-        </script>
-        {% endif %}
+    {% if message.tags == 'success' %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var m = "{{ message }}";
+        swal("Perfect !", m, "success")
+    </script>
+    {% endif %}
     {% endfor %}
 </div>
 
