@@ -20,21 +20,15 @@
 {% block content %}
 <div class="container mt-5">
     <div class="card p-3 border-dark">
-        <span class="btn btn-outline-dark mt-3">
-            <i class="fas fa-lock"></i>&nbsp;&nbsp;RESTRICTED ACCESS
-        </span>
+        <span class="btn btn-outline-dark mt-3"><i class="fas fa-lock"></i>&nbsp;&nbsp;RESTRICTED ACCESS</span>
         <form action="{% url 'login' %}" method="POST" autocomplete="off" novalidate >
             {% csrf_token %}
-            <div class="input-grid mb-3 mt-5">
-                <span class="input-group-text">
-                    <i class="fas fa-user-alt"></i>
-                </span>
+            <div class="input-group mb-3 mt-5">
+                <span class="btn input-group-text border-secondary bg-light icon-width"><i class="fas fa-user-alt"></i></span>
                 <input type="text" class="form-control" name="username" placeholder="Username" />
             </div>
-            <div class="input-grid mb-3">
-                <span class="input-group-text">
-                    <i class="fas fa-lock"></i>
-                </span>
+            <div class="input-group mb-3">
+                <span class="btn input-group-text border-secondary bg-light icon-width"><i class="fas fa-lock"></i></span>
                 <input type="password" class="form-control" name="password" placeholder="Password" />
             </div>
             <a></a>

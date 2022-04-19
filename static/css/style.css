@@ -27,7 +27,6 @@ html,body{
 #btn-enter {
     width: 90px;
 }
-
 #heart{
     position: absolute;
     top: 70%;
@@ -36,11 +35,14 @@ html,body{
     transform: translate(-50%, -50%);
     font-size: 20px;
 }
+.icon-width{
+    width: 45px;
+}
 
+/* Backend */
 .side-label{
     width: 75px;
 }
-
 #no-data{
     position: absolute;
     left: 50%;

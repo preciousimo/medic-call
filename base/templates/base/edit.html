@@ -17,6 +17,11 @@ Registered at: <span class="text-dark">{{ patient.created_at | date:'d/m/Y (H:i)
 <i class="fas fa-add"></i>&nbsp;&nbsp;Save
 {% endblock Btn-add %}
 
+<!-- Reset button -->
+{% block Btn-reset %}
+<button type="reset" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt">&nbsp;&nbsp;Reset</i></button>
+{% endblock Btn-reset %}
+
 <!-- Add button extended here -->
 {% block Action %} action="/edit_patient/" {% endblock Action %}
 
