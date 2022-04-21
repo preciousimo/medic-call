@@ -36,18 +36,19 @@
         </form>
     </div>
 
+    <!-- Message from backend -->
     {% if form.errors %}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
-        swal("Denied!","Enter your data correctly.", "Error");
+        swal("Denied!","Enter your data correctly.", "error")
     </script>
     {% endif %}
 
+    <!-- Heart Pulse -->
     <center id="heart">
         <i class="text-primary fas fa-heartbeat fa-10x blink_me"></i>
     </center>
 
-</div>
-
+</div> <!-- END // Container -->
 {% endblock content %}

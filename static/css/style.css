@@ -50,3 +50,41 @@ html,body{
     transform: translate(-50%, -50%);
     font-size: 22px;
 }
+
+/* Custom Sweetalert {blue theme} */
+/* All texts 100% centered */
+.swal-text {
+    text-align: center;
+}
+
+/* Icon settings */
+.swal-icon--success:before,
+.swal-icon--success:after,
+.swal-icon--success__hide-corners {
+    background: none !important;
+}
+.swal-icon--success {
+    /* Ring color */
+    border-color: #007bff;
+}
+.swal-icon--success__line {
+    /* Color animation */
+    background-color: #007bff;
+}
+/* Button settings */
+.swal-button {
+    padding: 7px 19px;
+    border-radius: 5px;
+    background-color: #007bff;
+    font-size: 12px;
+    border: 1px solid #007bff;
+}
+.swal-button:focus {
+    /* Remove the silver border of the button */
+    box-shadow: none;
+}
+.swal-button:not([diabled]):hover {
+    background: transparent;
+    color: #111;
+    border: 1px solid #007bff;
+}
