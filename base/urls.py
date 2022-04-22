@@ -1,9 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
     #Path to login and logout
-    path('login/', views.loginPage, name="login"),
+    # path('login/', views.loginPage, name="login"),
+    path('login/', include('django.contrib.auth.urls')),
     path('logout/', views.logoutUser, name="logout"),
     
     #Path to access the frontend page

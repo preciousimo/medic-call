@@ -8,37 +8,11 @@ from django.contrib.auth.models import User
 from base.models import Patient 
 from django.db.models import Q
 from django.core.paginator import Paginator
+
 # Create your views here.
 
-def loginPage(request):
-    page = 'login'
-    if request.user.is_authenticated:
-        return redirect('backend')
-    
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        try:
-            user = User.objects.get(username=username)
-        except:
-            messages.error(request, 'User does not exist')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            login(request, user)
-            return redirect('backend')
-        else:
-            messages.error(request, 'Username OR password does not exit')
-
-    return render(request, 'base/registration/login.html')
-
-
 def logoutUser(request):
-    logout(request)
-    return redirect('frontend')
-
+    return render(request, "login.html")
 
 def frontend(request):
     return render(request, "base/frontend.html")
