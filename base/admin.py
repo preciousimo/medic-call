@@ -7,4 +7,4 @@ class PatientAdmin(admin.ModelAdmin):
     list_filter = ['gender']
     list_per_page = 10
 
-admin.site.register(Patient, PatientAdmin)
+admin.site.register(Patient, PatientAdmin)  

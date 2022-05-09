@@ -6,7 +6,8 @@ html,body{
     overflow: hidden;
 }
 
-/* Navbar */ 
+/* NAVBAR */ 
+/* Button in navbar */
 #btn-nav {
     width: 90px;
     float: right;
@@ -18,15 +19,26 @@ html,body{
     min-height: 100%;
     margin-bottom: -50px;
 }
-#footer, .push{
+#footer, 
+.push{
     height: 50px;
     font-size: 13px;
 }
 
-/* Login */
+/* BASE */
+/* FontAwesome Icon & Title  */
+#nav-content {
+    text-align: center; 
+    color: #fff; 
+    margin-left: 25px;
+}
+
+/* LOGIN */
+/* Enter button */
 #btn-enter {
     width: 90px;
 }
+/* Heart Pulse */
 #heart{
     position: absolute;
     top: 70%;
@@ -35,14 +47,17 @@ html,body{
     transform: translate(-50%, -50%);
     font-size: 20px;
 }
+/* Label of the <inputs> */
 .icon-width{
     width: 45px;
 }
 
-/* Backend */
+/* BACKEND */
+/* Label in (add.html & edit.html) */
 .side-label{
     width: 75px;
 }
+/* Message if no data found in search box */
 #no-data{
     position: absolute;
     left: 50%;
@@ -50,7 +65,10 @@ html,body{
     transform: translate(-50%, -50%);
     font-size: 22px;
 }
-
+/* Pagination */
+#first, #last {
+    width: 60px;
+}
 /* Custom Sweetalert {blue theme} */
 /* All texts 100% centered */
 .swal-text {
@@ -87,4 +105,124 @@ html,body{
     background: transparent;
     color: #111;
     border: 1px solid #007bff;
+}
+
+/* RESPONSIVE RESOLUTION FOR TABLET (1024px) */
+@media(max-width: 1024px) {
+    /* TABLE */
+    .table head {
+        display: none;
+    }
+    .table, .table tbody, .table tr, table td {
+        display: block;
+        width: 100%;
+    }
+    .table tr {
+        margin-bottom: 15px;
+        border: 1px solid #111;
+        border-radius: 5px;
+    }
+    .table td {
+        text-align: right;
+        padding-left: 35%;
+        position: relative;
+        border: 1px solid transparent;
+    }
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+    .table > thead > tr:first-child {
+        display: none;
+        margin-top: 5px;
+    }
+    /* Border in TD */
+    #reponsive-border {
+        border: 1px solid #a9a9a9;
+    }
+    /* background color in TD */
+    #top-table {
+        background-color: #cfe2ff;
+        color: #111;
+        font-weight: bold;
+    }
+    /* Enable scrolling page on responsive */
+    body {
+        overflow: visible;
+    }
+    /* Buttons in navbar */
+    #btn-nav {
+        width: 75px;
+    }
+    /* Footer */
+    #footer {
+        font-size: 12px;
+    }
+}
+
+/* RESPONSIVE RESOLUTION FOR TABLET (500px) */
+@media(max-width: 1024px) {
+    /* Hide this <span> in this mode */
+    #all-rights {
+        display: none;
+    }
+    /* Footer */
+    #footer {
+        font-size: 10px;
+    }
+    /* Button in navbar */
+    #btn-nav {
+        width: 65px;
+        font-size: 12px;
+        margin-right: 15px;
+    }
+    /* Content in navbar (icon & title) */
+    #nav-content {
+        font-size: 15px;
+        margin-left: 15px;
+    }
+    /* Heart pulse */
+    #heart {
+        font-size: 12px;
+    }
+    /* Enter button in login.html */
+    #btn-enter {
+        width: 100%;
+        border-radius: 30px;
+    }
+    /* Global text small */
+    .txt-sm {
+        font-size: 12px;
+    }
+    /* Label in username & password */
+    .icon-width {
+        font-size: 12px;
+    }
+    /* Time hidden in this mode */
+    #clock {
+        display: none;
+    }
+    /* Action button (delete & edit) */
+    .btn-action {
+        width: 35px;
+        font-size: 12px;
+
+    }
+    /* Small pagination */
+    #first, #last {
+        font-size: 12px;
+        width: 50px;
+    } 
+    /* Inputs in add.html & edit.html */
+    #name, #phone, #email, #age, #gender {
+        font-size: 12px;
+    } 
+    .modal-title {
+        font-size: 14px;
+    }
 }

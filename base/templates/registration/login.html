@@ -20,16 +20,16 @@
 {% block content %}
 <div class="container mt-5">
     <div class="card p-3 border-dark">
-        <span class="btn btn-outline-dark mt-3"><i class="fas fa-lock"></i>&nbsp;&nbsp;RESTRICTED ACCESS</span>
+        <span class="btn btn-outline-dark mt-3 txt-sm"><i class="fas fa-lock"></i>&nbsp;&nbsp;RESTRICTED ACCESS</span>
         <form method="POST" autocomplete="off" novalidate >
             {% csrf_token %}
             <div class="input-group mb-3 mt-5">
                 <span class="btn input-group-text border-secondary bg-light icon-width"><i class="fas fa-user-alt"></i></span>
-                <input type="text" class="form-control" name="username" placeholder="Username" />
+                <input type="text" class="form-control txt-sm" name="username" placeholder="Username" />
             </div>
             <div class="input-group mb-3">
                 <span class="btn input-group-text border-secondary bg-light icon-width"><i class="fas fa-lock"></i></span>
-                <input type="password" class="form-control" name="password" placeholder="Password" />
+                <input type="password" class="form-control txt-sm" name="password" placeholder="Password" />
             </div>
             <a></a>
             <input class="btn btn-primary btn-sm mt-4 mb-3" type="submit" value="Enter" id="btn-enter" />

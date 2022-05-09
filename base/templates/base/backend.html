@@ -33,10 +33,10 @@
 
     <!-- Add button and Get username -->
     <div class="d-flex justify-content-between">
-        <a href="{% url 'add_patient' %}" class="btn btn-outline-primary btn-sm">
+        <a href="{% url 'add_patient' %}" class="btn btn-outline-primary btn-sm txt-sm">
             <i class="fas fa-plus"></i>&nbsp;&nbsp; Add Patient
         </a>
-        <span>
+        <span class="txt-sm">
             Welcome: <strong><span class="text-primary">{{ user.get_username }}</span></strong>
             <!-- {% now "H:i:s" %} -->
         </span>
@@ -68,20 +68,20 @@
             </thead>
             <!-- Data from backend -->
             {% for patient in patients %}
-            <tr id="chk_td">
-                <td>{{ patient.name }}</td>
-                <td>{{ patient.phone }}</td>
-                <td>{{ patient.email }}</td>
-                <td>{{ patient.age }}</td>
-                <td>{{ patient.gender }}</td>
-                <td>{{ patient.created_at | date:'d/m/Y (H:i)' }}</td>
+            <tr class="txt-sm" id="chk_td">
+                <td data-label="Name" id="top-table">{{ patient.name }}</td>
+                <td data-label="Phone" id="reponsive-border">{{ patient.phone }}</td>
+                <td data-label="Email" id="reponsive-border">{{ patient.email }}</td>
+                <td data-label="Age" id="reponsive-border">{{ patient.age }}</td>
+                <td data-label="Gender" id="reponsive-border">{{ patient.gender }}</td>
+                <td data-label="Registered" id="reponsive-border">{{ patient.created_at | date:'d/m/Y (H:i)' }}</td>
                 <td>
-                    <a href="/patient/{{ patient.id }}" class="btn btn-primary" title="Edit patient">
+                    <a href="/patient/{{ patient.id }}" class="btn btn-primary btn-action" title="Edit patient">
                         <li class="fas fa-pen"></li>
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-secondary" title="Delete patient"
+                    <a class="btn btn-secondary btn-action" title="Delete patient"
                         data-bs-toggle="modal" data-bs-target="#deleteModal{{ patient.pk }}">
                         <li class="fas fa-trash-alt"></li>
                     </a>
@@ -100,17 +100,17 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <div class="text-center text-danger"><i class="fas fa-times-circle fa-5x mb-4 mt-2"></i>
+                            <div class="text-center text-danger txt-sm"><i class="fas fa-times-circle fa-5x mb-4 mt-2"></i>
                             </div>
-                            <div class="text-center text-danger">
+                            <div class="text-center text-danger txt-sm">
                                 <span>DO YOU WANT TO DELETE THIS PATIENT ?</span>
                                 <div class="text-dark mt-3 mb-2">Patient: <strong>{{ patient.name }}</strong></div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary btn-small"
+                            <button type="button" class="btn btn-secondary btn-sm txt-sm"
                                 data-dismiss="modal">Cancel</button>
-                            <a href="/delete_patient/{{ patient.id }}" type="button" class="btn btn-primary btn-small">Delete</a>
+                            <a href="/delete_patient/{{ patient.id }}" type="button" class="btn btn-primary btn-sm txt-sm">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -121,12 +121,12 @@
 
 
     <!-- Pagination -->
-    <nav class="mt-4">
+    <nav class="mt-4 txt-sm">
         {% if patients.has_other_pages %}
         <ul class="pagination justify-content-right" style="float: right;">
             {% if patients.has_previous %}
-            <a href="?page=1" class="btn btn-outline-primary mb-4"
-                style="width: 60px; border-radius: 1px; border: 1px solid #d3d3d3;">First</a>
+            <a href="?page=1" class="btn btn-outline-primary mb-4" id="first"
+                style="border-radius: 1px; border: 1px solid #d3d3d3;">First</a>
             <li class="page-item"><a href="?page={{ patients.previous_page_number }}" class="page-link"><i
                         class="fas fa-angle-double-left"></i></a></li>
             {% else %}
@@ -144,8 +144,8 @@
             {% if patients.has_next %}
             <li class="page-item"><a href="?page={{ patients.next_page_number }}" class="page-link"><i
                         class="fas fa-angle-double-right"></i></a></li>
-            <a href="?page={{ patients.paginator.num_pages }}" class="btn btn-outline-primary mb-4"
-                style="width: 60px; border-radius: 1px; border: 1px solid #d3d3d3; border-left: none;">Last</a>
+            <a href="?page={{ patients.paginator.num_pages }}" class="btn btn-outline-primary mb-4" id="last"
+                style="border-radius: 1px; border: 1px solid #d3d3d3; border-left: none;">Last</a>
             {% else %}
             <li class="page-item disabled"></li>
             {% endif %}
@@ -166,6 +166,7 @@
 </div>
 
 <!-- If no patient, show this span (message) -->
-<span class="text-danger" id="no-data">
-</span>
+<span class="text-danger" id="no-data"></span>
+
+<br><br><br>
 {% endblock content %}
