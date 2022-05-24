@@ -63,7 +63,11 @@
                     <th style="width: 8%">Age</th>
                     <th style="width: 7%">Gender</th>
                     <th style="width: 18%">Registered</th>
+                    {% if request.user.is_superuser %}
                     <th style="width: 10%" colspan="2">Actions</th>
+                    {% else %}
+                    <th style="width: 10%" colspan="2">Edit Patient</th>
+                    {% endif %}
                 </tr>
             </thead>
             <!-- Data from backend -->
@@ -80,12 +84,14 @@
                         <li class="fas fa-pen"></li>
                     </a>
                 </td>
+                {% if request.user.is_superuser %}
                 <td>
                     <a class="btn btn-secondary btn-action" title="Delete patient"
                         data-bs-toggle="modal" data-bs-target="#deleteModal{{ patient.pk }}">
                         <li class="fas fa-trash-alt"></li>
                     </a>
                 </td>
+                {% endif %}
             </tr>
             <!-- Modal {delete confirmation} -->
             <div class="modal fade" id="deleteModal{{ patient.pk }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
