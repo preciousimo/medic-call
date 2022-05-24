@@ -11,9 +11,6 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 
-def logoutUser(request):
-    return render(request, "login.html")
-
 def frontend(request):
     return render(request, "base/frontend.html")
 

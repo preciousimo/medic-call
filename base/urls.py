@@ -5,7 +5,7 @@ urlpatterns = [
     #Path to login and logout
     # path('login/', views.loginPage, name="login"),
     path('login/', include('django.contrib.auth.urls')),
-    path('logout/', views.logoutUser, name="logout"),
+    path('logout/', include('django.contrib.auth.urls')),
     
     #Path to access the frontend page
     path('', views.frontend, name="frontend"),
