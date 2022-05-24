@@ -110,7 +110,7 @@ html,body{
 /* RESPONSIVE RESOLUTION FOR TABLET (1024px) */
 @media(max-width: 1024px) {
     /* TABLE */
-    .table head {
+    .table thead {
         display: none;
     }
     .table, .table tbody, .table tr, table td {
