@@ -154,14 +154,15 @@
 
     </nav>
 
+    <!-- Message from backend -->
     {% for message in messages %}
-    {% if message.tags == 'success' %}
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script>
-        var m = "{{ message }}";
-        swal("Perfect !", m, "success")
-    </script>
-    {% endif %}
+        {% if message.tags == 'success' %}
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script>
+            var m = "{{ message }}";
+            swal("Perfect !", m, "success")
+        </script>
+        {% endif %}
     {% endfor %}
 </div>
 

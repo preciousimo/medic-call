@@ -9,11 +9,12 @@ from base.models import Patient
 from django.db.models import Q
 from django.core.paginator import Paginator
 
-# Create your views here.
-
+# Function to render the frontend page
 def frontend(request):
     return render(request, "base/frontend.html")
 
+# BACKEND SECTION
+# Function to render the frontend page
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='login')
 def backend(request):
@@ -30,11 +31,24 @@ def backend(request):
 
     return render(request, "base/backend.html", {"patients":all_patient})
 
+# Function to add new patient
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 @login_required(login_url='login')
 def add_patient(request):
     if request.method == 'POST':
-        if request.POST.get('name') and request.POST.get('phone') and request.POST.get('email') and request.POST.get('age') and request.POST.get('gender' ) or request.POST.get('note'):
+        
+        email = request.POST['email']
+
+        if Patient.objects.filter(email=email).exists():
+            messages.error(request, "Email already registered !")
+            return render(request, 'add.html')
+
+        elif request.POST.get('name') \
+            and request.POST.get('phone') \
+            and request.POST.get('email') \
+            and request.POST.get('age') \
+            and request.POST.get('gender' ) \
+            or request.POST.get('note'):
             patient = Patient()
             patient.name = request.POST.get('name')
             patient.phone = request.POST.get('phone')
