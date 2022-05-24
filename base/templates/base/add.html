@@ -36,24 +36,24 @@
             </div>
             <form {% block Action %} action="/add_patient/" {% endblock Action %} method="POST" autocomplete="off" enctype="multipart/form-data" class="card p-3 border-dark mt-3">
                 {% csrf_token %}
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text side-label"><span class="txt-sm">Name</span></span>
+                <div class="input-group mb-3">
+                    <span class="side-label btn border-secondary bg-light txt-sm"><i class="fas fa-user-alt"></i></span>
                     <input type="text" class="form-control" name="name" id="name" maxlength="40" placeholder="First and Last Name" {% block Value-name %} {% endblock Value-name %}/>
                 </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text side-label"><span class="txt-sm">Phone</span></span>
+                <div class="input-group mb-3">
+                    <span class="side-label btn border-secondary bg-light txt-sm"><i class="fas fa-phone-alt"></i></span>
                     <input type="phone" class="form-control" name="phone" id="phone" placeholder="Patient phone" {% block Value-phone %} {% endblock Value-phone %}/>
                 </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text side-label"><span class="txt-sm">Email</span></span>
+                <div class="input-group mb-3">
+                    <span class="side-label btn border-secondary bg-light txt-sm"><i class="fas fa-envelope"></i></span>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Patient email" {% block Value-email %} {% endblock Value-email %}/>
                 </div>
-                <div class="input-group input-group-sm mb-3">
-                    <span class="input-group-text side-label"><span class="txt-sm">Age</span></span>
+                <div class="input-group mb-3">
+                    <span class="side-label btn border-secondary bg-light txt-sm"><i class="fab fa-creative-commons-by"></i></span>
                     <input type="number" class="form-control" name="age" id="age" placeholder="Patient age" {% block Value-age %} {% endblock Value-age %}/>
                 </div>
-                <div class="input-group input-group-sm mb-3">
-                    <label class="input-group-text side-label"><span class="txt-sm">Gender</span></label>
+                <div class="input-group mb-3">
+                    <label><span class="side-label btn border-secondary bg-light txt-sm" style="border-radius: 4px 0p 0px 4px;"><i class="fas fa-child"></i></span></label>
                     <select class="form-select" name="gender" id="gender">
                         {% block option %}
                         <option value="" hidden>Select the gender</option>
@@ -66,19 +66,37 @@
                 <div class="form-group">
                     <textarea class="form-control txt-sm" name="note" rows="7" placeholder="Description is optional...">{% block note %}{% endblock note %}</textarea>
                 </div>
-                <div class="d-grid gap-2 mt-2">
-                    <button type="submit" class="btn btn-primary btn-sm txt-sm" id="btn-add">
-                        {% block Btn-add %}
-                        <i class="fas fa-plus"></i>&nbsp;&nbsp;Add
-                        {% endblock Btn-add %}
+
+                <!-- Desktop & Tablet mode (buttons) -->
+                <div id="btn-desktop" class="mt-4" style="width: 100%;">
+                    <button type="submit" class="btn btn-outline-primary mb-3 btn-add">
+                        {% block Btn-content1 %}
+                        <i class="fas fa-plus"></i> Add Patient
+                        {% endblock Btn-content1 %}
                     </button>
-
-                    <!-- Reset button {in edit.html} denied here -->
-                    {% block Btn-reset %}{% endblock Btn-reset %}
-
-                    <a href="{% url 'backend' %}" class="btn btn-dark btn-sm txt-sm">
-                        <i class="fas fa-chevron-left"></i>&nbsp;&nbsp;Back
+                    <a href="{% url 'backend' %}" class="btn btn-outline-dark mb-3 ms-2" style="width: 50px;" title="Back">
+                        <i class="fas fa-chevron-left"></i>
                     </a>
+                    <button type="reset" class="btn btn-outline-secondary mb-3 ms-2" style="width: 50px;" title="Reset">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
+                </div>
+                
+                <!-- Smartphone mode (buttons) -->
+                <div id="btn-smartphone">
+                    <div class="d-grid gap-2 mt-3">
+                        <button type="submit" class="btn btn-primary btn-sm txt-sm" id="btn-add">
+                            {% block Btn-content2 %}
+                            <i class="fas fa-plus"></i>&nbsp;&nbsp;Add
+                            {% endblock Btn-content2 %}
+                        </button>
+                    
+                        <a href="{% url 'backend' %}" class="btn btn-dark btn-sm txt-sm">
+                            <i class="fas fa-chevron-left"></i>&nbsp;&nbsp;Back
+                        </a>
+    
+                        <button type="reset" class="btn btn-secondary btn-sm txt-sm"><i class="fas fa-sync-alt">&nbsp;&nbsp;Reset</i></button>
+                    </div>
                 </div>
 
                 <!-- ID Hidden (denied here) -->

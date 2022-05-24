@@ -33,8 +33,11 @@
 
     <!-- Add button and Get username -->
     <div class="d-flex justify-content-between">
-        <a href="{% url 'add_patient' %}" class="btn btn-outline-primary btn-sm txt-sm" id="add-patient">
+        <a href="{% url 'add_patient' %}" id="Btn-add-desktop" class="btn btn-outline-primary btn-sm txt-sm" id="add-patient">
             <i class="fas fa-plus"></i>&nbsp;&nbsp; Add Patient
+        </a>
+        <a href="{% url 'add_patient' %}" id="Btn-add-smartphone" class="btn btn-outline-primary btn-sm">
+            <i class="fas fa-plus"></i>
         </a>
         <span class="welcome">
             Welcome: <strong><span class="text-primary">{{ user.get_username }}</span></strong>
