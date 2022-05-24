@@ -20,7 +20,7 @@
 {% block content %}
 <div class="container mt-5">
     <div class="card p-3 border-dark">
-        <span class="btn btn-outline-dark mt-3 txt-sm"><i class="fas fa-lock"></i>&nbsp;&nbsp;RESTRICTED ACCESS</span>
+        <span class="btn btn-outline-dark mt-3" id="title-login"><i class="fas fa-lock"></i>&nbsp;&nbsp;RESTRICTED ACCESS</span>
         <form method="POST" autocomplete="off" novalidate >
             {% csrf_token %}
             <div class="input-group mb-3 mt-5">

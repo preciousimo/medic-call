@@ -33,10 +33,10 @@
 
     <!-- Add button and Get username -->
     <div class="d-flex justify-content-between">
-        <a href="{% url 'add_patient' %}" class="btn btn-outline-primary btn-sm txt-sm">
+        <a href="{% url 'add_patient' %}" class="btn btn-outline-primary btn-sm txt-sm" id="add-patient">
             <i class="fas fa-plus"></i>&nbsp;&nbsp; Add Patient
         </a>
-        <span class="txt-sm">
+        <span class="welcome">
             Welcome: <strong><span class="text-primary">{{ user.get_username }}</span></strong>
             <!-- {% now "H:i:s" %} -->
         </span>
@@ -109,7 +109,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm txt-sm"
-                                data-dismiss="modal">Cancel</button>
+                                data-bs-dismiss="modal">Cancel</button>
                             <a href="/delete_patient/{{ patient.id }}" type="button" class="btn btn-primary btn-sm txt-sm">Delete</a>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
 
 
     <!-- Pagination -->
-    <nav class="mt-4 txt-sm">
+    <nav class="mt-4" id="pagination">
         {% if patients.has_other_pages %}
         <ul class="pagination justify-content-right" style="float: right;">
             {% if patients.has_previous %}
