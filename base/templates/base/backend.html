@@ -19,9 +19,23 @@
 
 <!-- Button in navbar -->
 {% block btn-nav %}
-<a  class="btn btn-outline-danger btn-sm border-light text-light" id="btn-nav" data-bs-toggle="modal"
-    data-bs-target="#logoutModal">Logout</a>
+<div class="text-light" id="sidebar" ata-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+    <i class="fas fa-bars"></i>
+</div>
+<a  class="btn btn-outline-danger btn-sm border-light text-light" id="btn-nav" >Logout</a>
 {% endblock btn-nav %}
+
+<!-- Sidebar -->
+{% block body-sidebar %}
+<div class="d-grid gap-2">
+    <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</button>
+    {% if request.user.is_superuser %}
+    <a href="{% url 'admin:index' %}" target="_blank" class="btn btn-outline-primary btn-sm mb-3">Admin</a>
+    {% else %}
+    <button class="btn btn-outline-secondary btn-sm">Support</button>
+    {% endif %}
+</div>
+{% endblock body-sidebar %}
 
 <!-- Footer {color} -->
 {% block footer %} style="color: #89cff0; text-decoration: none;"{% endblock footer %}

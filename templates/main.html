@@ -19,7 +19,7 @@
     <link rel="shortcut icon" href="{% static 'images/logo.ico' %}">
     <!-- Statc CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+
     <title>{% block title %} Medic Care {% endblock title %}</title>
 </head>
 
@@ -46,6 +46,18 @@
                 </div>
             </nav>
         </header>
+
+        <!-- SIDEBAR -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">MENU</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                {% block body-sidebar %}{% endblock body-sidebar %}
+            </div>
+        </div>
 
         <!-- Block content {ROOT} -->
         {% block content %} {% endblock content %}
@@ -79,7 +91,8 @@
                     <div class="mt-4 mb-4 text-danger">Are you sure you want to exit the system ?</div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-sm txt-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary btn-sm txt-sm"
+                        data-bs-dismiss="modal">Cancel</button>
                     <a href="{% url 'logout' %}" type="button" class="btn btn-outline-danger btn-sm txt-sm">Logout</a>
                 </div>
             </div>
@@ -117,9 +130,9 @@
     <script src="{% static 'js/main.js' %}"></script>
 
     <script>
-        (function blink() {
-            $('.blink_me').fadeOut(1000).fadeIn(1000, blink);
-        })();
+            (function blink() {
+                $('.blink_me').fadeOut(1000).fadeIn(1000, blink);
+            })();
     </script>
 </body>
 
