@@ -14,6 +14,12 @@ body {
   float: right;
   margin-left: 25px;
 }
+#sidebar {
+  float: right;
+  margin-right: 25px;
+  cursor: pointer;
+  font-size: 20px;
+}
 
 /* Footer */
 .wrapper {
