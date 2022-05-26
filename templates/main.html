@@ -47,74 +47,6 @@
             </nav>
         </header>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Launch demo modal
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-headset"></i> Support</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form method="POST" action="#" autocomplete="off" class="was-validated">
-                        {% csrf_token %}
-                        <div class="modal-body">
-                            <input type="text" value="{{ user.get_username }}" name="user">
-
-                            <div class="mb-3">
-                                <textarea class="form-control is-invalid txt-sm" name="message" rows="7" maxlength="350"
-                                    required placeholder="Describe your problem here..."></textarea>
-                            </div>
-
-                            <div class="form-check mb-3 txt-sm">
-                                <input type="checkbox" class="form-check-input" value="True" name="terms"
-                                    id="validationFormCheck1" required>
-                                <label class="form-check-label" for="validationFormCheck1">I take
-                                    responsibility</label>
-                                <div class="invalid-feedback">You will take responsibility</div>
-                            </div>
-
-                            <div class="form-check txt-sm">
-                                <input type="radio" class="form-check-input" value="It happened  to me" name="option"
-                                    id="validationFormCheck2" required>
-                                <label class="form-check-label" for="validationFormCheck2">It happened to me</label>
-                            </div>
-
-                            <div class="form-check mb-3 txt-sm">
-                                <input type="radio" class="form-check-input" value="It was already like that" name="option"
-                                    id="validationFormCheck3" required>
-                                <label class="form-check-label" for="validationFormCheck3">It was already like that</label>
-                                <div class="invalid-feedback">Choose one of the option</div>
-                            </div>
-                            
-                            <div class="mb-3 txt-sm">
-                                <select class="form-select txt-sm" name="reason" required>
-                                    <option value="">Select reason</option>
-                                    <option disabled></option>
-                                    <option>Delete patient</option>
-                                    <option>System problems</option>
-                                    <option>Others</option>
-                                    <div class="invalid-feedback">Others: For an unlisted choice</div>
-                                </select>
-                            </div>
-
-                        </div> <!-- End of modal body -->
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary btn-sm txt-sm" id="btn-cancel"
-                                data-bs-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary btn-sm txt-sm" id="btn-proceed">Send</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <!-- Block content {ROOT} -->
         {% block content %} {% endblock content %}
 
@@ -163,6 +95,69 @@
         </div>
         <div class="offcanvas-body">
             {% block body-sidebar %}{% endblock body-sidebar %}
+        </div>
+    </div>
+
+    <!-- Modal (support) -->
+    <div class="modal fade" id="supportModal" tabindex="-1" aria-labelledby="supportModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="supportModalLabel"><i class="fas fa-headset"></i> Support</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="POST" action="#" autocomplete="off" class="was-validated">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <input type="text" value="{{ user.get_username }}" name="user">
+
+                        <div class="mb-3">
+                            <textarea class="form-control is-invalid txt-sm" name="message" rows="7" maxlength="350"
+                                required placeholder="Describe your problem here..."></textarea>
+                        </div>
+
+                        <div class="form-check mb-3 txt-sm">
+                            <input type="checkbox" class="form-check-input" value="True" name="terms"
+                                id="validationFormCheck1" required>
+                            <label class="form-check-label" for="validationFormCheck1">I take
+                                responsibility</label>
+                            <div class="invalid-feedback">You will take responsibility</div>
+                        </div>
+
+                        <div class="form-check txt-sm">
+                            <input type="radio" class="form-check-input" value="It happened  to me" name="option"
+                                id="validationFormCheck2" required>
+                            <label class="form-check-label" for="validationFormCheck2">It happened to me</label>
+                        </div>
+
+                        <div class="form-check mb-3 txt-sm">
+                            <input type="radio" class="form-check-input" value="It was already like that" name="option"
+                                id="validationFormCheck3" required>
+                            <label class="form-check-label" for="validationFormCheck3">It was already like that</label>
+                            <div class="invalid-feedback">Choose one of the option</div>
+                        </div>
+                        
+                        <div class="mb-3 txt-sm">
+                            <select class="form-select txt-sm" name="reason" required>
+                                <option value="">Select reason</option>
+                                <option disabled></option>
+                                <option>Delete patient</option>
+                                <option>System problems</option>
+                                <option>Others</option>
+                                <div class="invalid-feedback">Others: For an unlisted choice</div>
+                            </select>
+                        </div>
+
+                    </div> <!-- End of modal body -->
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm txt-sm" id="btn-cancel"
+                            data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-sm txt-sm" id="btn-proceed">Send</button>
+                    </div>
+
+                </form>
+            </div>
         </div>
     </div>
 

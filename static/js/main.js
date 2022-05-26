@@ -157,4 +157,12 @@ $("#age").on("input", function() {
   if (/^0/.test(this.value)) {
     this.value = this.value.replace(/^0/, "")
   }
-})
+});
+
+// Close offcanvas when a button is clicked
+$(document).ready(function () {
+  jQuery("#offcanvasRight, .offcanvas-body a").click(function() {
+    console.log($(this).atrr('href'));
+    jQuery('.offcanvas').offcanvas('hide');
+  });
+});

@@ -84,6 +84,9 @@ body {
 .btn-add {
   width: 150px;
 }
+#btn-cancel, #btn-proceed {
+  width: 70px;
+}
 
 /* Custom Sweetalert {blue theme} */
 /* All texts 100% centered */

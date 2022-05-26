@@ -31,7 +31,7 @@
     {% if request.user.is_superuser %}
     <a href="{% url 'admin:index' %}" target="_blank" class="btn btn-outline-primary btn-sm mb-3">Admin</a>
     {% else %}
-    <button class="btn btn-outline-secondary btn-sm">Support</button>
+    <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#supportModal">Support</button>
     {% endif %}
 </div>
 {% endblock body-sidebar %}
