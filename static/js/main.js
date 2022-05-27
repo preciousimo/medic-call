@@ -162,7 +162,7 @@ $("#age").on("input", function() {
 // Close offcanvas when a button is clicked
 $(document).ready(function () {
   jQuery("#offcanvasRight, .offcanvas-body a").click(function() {
-    console.log($(this).atrr('href'));
+    console.log($(this).attr('href'));
     jQuery('.offcanvas').offcanvas('hide');
   });
 });

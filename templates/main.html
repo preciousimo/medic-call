@@ -109,7 +109,8 @@
                 <form method="POST" action="#" autocomplete="off" class="was-validated">
                     {% csrf_token %}
                     <div class="modal-body">
-                        <input type="text" value="{{ user.get_username }}" name="user">
+
+                        <input type="hidden" value="{{ user.get_username }}" name="user">
 
                         <div class="mb-3">
                             <textarea class="form-control is-invalid txt-sm" name="message" rows="7" maxlength="350"
@@ -125,7 +126,7 @@
                         </div>
 
                         <div class="form-check txt-sm">
-                            <input type="radio" class="form-check-input" value="It happened  to me" name="option"
+                            <input type="radio" class="form-check-input" value="It happened to me" name="option"
                                 id="validationFormCheck2" required>
                             <label class="form-check-label" for="validationFormCheck2">It happened to me</label>
                         </div>
@@ -134,7 +135,7 @@
                             <input type="radio" class="form-check-input" value="It was already like that" name="option"
                                 id="validationFormCheck3" required>
                             <label class="form-check-label" for="validationFormCheck3">It was already like that</label>
-                            <div class="invalid-feedback">Choose one of the option</div>
+                            <div class="invalid-feedback">Choose one of the options</div>
                         </div>
                         
                         <div class="mb-3 txt-sm">
