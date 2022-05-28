@@ -49,6 +49,10 @@
             </div>
             <form {% block Action %} action="/add_patient/" {% endblock Action %} method="POST" autocomplete="off" enctype="multipart/form-data" class="card p-3 border-dark mt-3">
                 {% csrf_token %}
+
+                <!-- Block Id hidden here -->
+                {% block Value-id %}{% endblock Value-id %}
+
                 <div class="input-group mb-3">
                     <span class="side-label btn border-secondary bg-light txt-sm"><i class="fas fa-user-alt"></i></span>
                     <input type="text" class="form-control" name="name" id="name" maxlength="40" placeholder="First and Last Name" {% block Value-name %} {% endblock Value-name %}/>

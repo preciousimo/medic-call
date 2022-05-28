@@ -25,7 +25,16 @@ Registered at: <span class="text-dark">{{ patient.created_at | date:'d/m/Y (H:i)
 <!-- Add button extended here -->
 {% block Action %} action="/edit_patient/" {% endblock Action %}
 
-<!-- Block Form Action -->
+                        <!-- ALL INPUTS EXTENDED -->
+<!-- Block Id hidden here -->
+{% block Value-id %}
+<div class="input-group mb-3">
+    <span class="side-label btn border-secondary bg-light txt-sm"><i class="fas fa-key"></i></span>
+    <input type="text" class="form-control txt-sm" name="id" value="{{ patient.id }}" readonly>
+</div>
+{% endblock Value-id %}
+
+<!-- Name -->
 {% block Value-name %} value="{{ patient.name }}" {% endblock Value-name %}
 
 <!-- Phone number -->
@@ -44,8 +53,3 @@ Registered at: <span class="text-dark">{{ patient.created_at | date:'d/m/Y (H:i)
 
 <!-- Note -->
 {% block note %}{{ patient.note }}{% endblock note %}
-
-<!-- ID Hidden -->
-{% block Id-hidden %}
-<input type="hidden" value="{{ patient.id }}" name="id">
-{% endblock Id-hidden %}
