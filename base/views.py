@@ -29,7 +29,9 @@ def backend(request):
     page = request.GET.get('page')
     all_patient = paginator.get_page(page)
 
-    return render(request, "base/backend.html", {"patients":all_patient})
+    total = Patient.objects.all().count()
+
+    return render(request, "base/backend.html", {"patients":all_patient, 'count':total })
 
 # Function to add new patient
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
