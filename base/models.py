@@ -1,6 +1,8 @@
+from email import message
+from pyexpat import model
 from django.db import models
 
-# Create your models here.
+# PATIENT
 class Patient(models.Model):
 
     GENDER = (
@@ -19,3 +21,33 @@ class Patient(models.Model):
 
     def __str__(self):
         return self.name
+
+# SUPPORT
+OPTION = (
+    ('It happened to me', 'It happened to me'),
+    ('It was already like that', 'It was already like that'),
+    )
+
+REASON = (
+    ('Delete patient','Delete patient'),
+    ('System problems','System problems'),
+    ('Others','Others'),
+    )
+
+SITUATION = (
+    ('Done', 'Done'),
+    ('Pending', 'Pending') ,    
+    )
+
+class Support(models.Model):
+    
+    terms = models.BooleanField("You got this responsibility")
+    user = models.CharField(max_length=100)
+    message = models.TextField()
+    option = models.CharField(max_length=100, choices=OPTION)
+    reason = models.CharField(max_length=100, choices=REASON)
+    created_at = models.DateTimeField(auto_now_add=True)
+    situation = models.CharField(max_length=100, null=True, choices=SITUATION, default='Pending')
+
+    def __str__(self):
+        return self.user

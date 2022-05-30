@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.cache import cache_control
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
-from base.models import Patient 
+from base.models import Patient, Support
 from django.db.models import Q
 from django.core.paginator import Paginator
 
@@ -97,3 +97,29 @@ def delete_patient(request, patient_id):
 
     messages.success(request, "Patient removed successfully !")
     return HttpResponseRedirect('/backend')
+
+#SUPPORT
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+@login_required(login_url='login')
+def support(request):
+    if request.method == "POST":
+
+        support = Support()
+
+        user = request.POST.get('user')
+        message = request.POST.get('message')
+        terms = request.POST.get('terms')
+        option = request.POST.get('option')
+        reason = request.POST.get('reason')
+
+        support.user = user
+        support.message = message
+        support.terms = terms
+        support.option = option
+        support.reason = reason
+
+        support.save()
+        messages.success(request, "We will review your request !")
+        return HttpResponseRedirect('/backend')
+    else:
+        return HttpResponseRedirect('/backend')

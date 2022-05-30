@@ -21,4 +21,8 @@ urlpatterns = [
      
     #Path to eelete the patient
     path('delete_patient/<str:patient_id>/', views.delete_patient, name="delete_patient"),
+
+    #Support
+    path('support/', views.support, name="support"),
+
 ]
