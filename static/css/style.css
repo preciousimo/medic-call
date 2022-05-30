@@ -282,4 +282,10 @@ body {
   .side-label {
     width: 40px;
   }
+  #sidebar {
+    margin-right: 15px;
+  }
+  #btn-cancel, #btn-proceed {
+    width: 60px;
+  }
 }
