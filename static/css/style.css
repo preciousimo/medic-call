@@ -81,9 +81,6 @@ body {
 #btn-smartphone {
   display: none;
 }
-.btn-add {
-  width: 150px;
-}
 #btn-cancel, #btn-proceed {
   width: 70px;
 }

@@ -78,7 +78,7 @@ function validateAll() {
     return true;
   }
 }
-$("#btn-add").bind("click", validateAll);
+$(".btn-add").bind("click", validateAll);
 
 // Scripts - Only letter is allowed
 $(document).ready(function () {
