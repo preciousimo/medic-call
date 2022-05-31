@@ -288,4 +288,8 @@ body {
   #btn-cancel, #btn-proceed {
     width: 60px;
   }
+  #card-title {
+    margin-top: -5px;
+    margin-bottom: -5px;
+  }
 }
