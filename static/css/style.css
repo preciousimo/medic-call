@@ -14,7 +14,7 @@ body {
   float: right;
   margin-left: 25px;
 }
-#sidebar {
+#sidebar{
   float: right;
   margin-right: 25px;
   cursor: pointer;
@@ -75,12 +75,15 @@ body {
 #last {
   width: 60px;
 }
+/* Buttons in responsive mode (add.html and edit.html) */
 #Btn-add-smartphone {
   display: none;
 }
+/* Button ADD PATIENT (responsive mood) in backend.html */
 #btn-smartphone {
   display: none;
 }
+/* Button in modal support */
 #btn-cancel, #btn-proceed {
   width: 70px;
 }
@@ -164,7 +167,7 @@ body {
   #reponsive-border {
     border: 1px solid #a9a9a9;
   }
-  /* background color in TD */
+  /* background color in TD  (only on name) light blue*/
   #top-table {
     background-color: #cfe2ff;
     color: #111;
@@ -235,13 +238,14 @@ body {
     font-size: 12px;
   }
   /* Small pagination */
-  #pagination,
+  /* #pagination,
   #first,
   #last {
     font-size: 12px;
-  }
+  } */
   #first,
   #last {
+    font-size: 12px;
     width: 50px;
   }
   /* Inputs in add.html & edit.html */
@@ -252,26 +256,37 @@ body {
   #gender {
     font-size: 12px;
   }
+  /* Title of the modals (all modals) */
   .modal-title {
     font-size: 14px;
   }
-  #card-login {
-    width: 95px;
+  /* Message if no patients found */
+  #no-data {
+    font-size: 14px;
   }
+  /* CONTAINER of the login form (to set the width) */
+  #card-login {
+    width: 95%;
+  }
+  /* Enter button in login.html */
   #btn-enter {
     font-size: 12px;
   }
+  /* Button to ADD PATIENT in backend.html (responsive mode) */
   #Btn-add-smartphone {
     display: inline;
     width: 40px;
     font-size: 12px;
   }
+  /* Button to ADD PATIENT in backend.html (desktop and tablet mode) */
   #Btn-add-desktop {
     display: none;
   }
+  /* Buttons (add - reset - back) in add.html and edit.html (responsive mode) */
   #btnsmartphone {
     display: inline;
   }
+  /* Buttons (add - reset - back) in add.html and edit.html (desktop and tablet mode) */
   #btn-desktop {
     display: none;
   }
@@ -279,12 +294,15 @@ body {
   .side-label {
     width: 40px;
   }
+  /* Sidebar icon on backend pages */
   #sidebar {
     margin-right: 15px;
   }
+  /* Buttons in modal support */
   #btn-cancel, #btn-proceed {
     width: 60px;
   }
+  /* Card of the title in add.html and edit.html */
   #card-title {
     margin-top: -5px;
     margin-bottom: -5px;

@@ -30,7 +30,7 @@
                 <div class="col-sm">
                     <a class="navbar-brand flex-grow-1" id="nav-content">
                         {% block nav-content %}
-                        <i class="fas fa-briefcase-medical"></i>&nbsp;&nbsp;Medic Care
+                        <i class="fas fa-briefcase-medical"></i>  Medic Care
                         {% endblock nav-content %}
                     </a>
                 </div>
@@ -40,8 +40,8 @@
 
                 <div class="col-sm">
                     {% block btn-nav %}
-                    <a href="{% url 'backend' %}" class="btn btn-outline-info btn-sm border-light"
-                        id="btn-nav">Login</a>
+                    <a href="{% url 'backend' %}" class="btn btn-outline-info btn-sm border-light" id="btn-nav">Login</a>
+                    <a href="{% url 'backend' %}" class="text-light" id="front-nav-icon"><i class="fas fa-user-lock"></i></a>
                     {% endblock btn-nav %}
                 </div>
             </nav>
@@ -68,7 +68,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="logoutModalLabel"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout
+                    <h5 class="modal-title" id="logoutModalLabel"><i class="fas fa-sign-out-alt"></i>  Logout
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

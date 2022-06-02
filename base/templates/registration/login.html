@@ -5,12 +5,13 @@
 
 <!-- Navbar content (icon + title) -->
 {% block nav-content %}
-<i class="fas fa-stethoscope"></i>&nbsp;&nbsp;Login
+<i class="fas fa-stethoscope"></i>  Login
 {% endblock nav-content %}
 
 <!-- Button in navbar -->
 {% block btn-nav %}
 <a href="{% url 'frontend' %}" class="btn btn-outline-primary btn-sm border-light text-light" id="btn-nav">Go back</a>
+<a href="{% url 'frontend' %}" class="text-light" id="front-nav-icon"><i class="fas fa-angle-double-left"></i></a>
 {% endblock btn-nav %}
 
 <!-- Footer {color} -->
