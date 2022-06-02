@@ -14,11 +14,16 @@ body {
   float: right;
   margin-left: 25px;
 }
-#sidebar{
+#sidebar,
+#front-nav-icon {
   float: right;
   margin-right: 25px;
   cursor: pointer;
   font-size: 20px;
+}
+/* Frontend icons (Only enable in responsive mode) */
+#front-nav-icon {
+  display: none;
 }
 
 /* Footer */
@@ -84,7 +89,8 @@ body {
   display: none;
 }
 /* Button in modal support */
-#btn-cancel, #btn-proceed {
+#btn-cancel,
+#btn-proceed {
   width: 70px;
 }
 
@@ -199,8 +205,12 @@ body {
   }
   /* Button in navbar */
   #btn-nav {
-    width: 65px;
-    font-size: 12px;
+    display: none;
+  }
+   /* Frontend icons (FontAwesome in responsive mode) */
+   #front-nav-icon {
+    display: inline;
+    font-size: 18px;
     margin-right: 15px;
   }
   /* Content in navbar (icon & title) */
@@ -297,14 +307,20 @@ body {
   /* Sidebar icon on backend pages */
   #sidebar {
     margin-right: 15px;
+    font-size: 18px;
   }
   /* Buttons in modal support */
-  #btn-cancel, #btn-proceed {
+  #btn-cancel,
+  #btn-proceed {
     width: 60px;
   }
   /* Card of the title in add.html and edit.html */
   #card-title {
     margin-top: -5px;
     margin-bottom: -5px;
+  }
+  /* Frontend icons (Only enable in responsive mode) */
+  #front-nav-icon {
+    display: none;
   }
 }
