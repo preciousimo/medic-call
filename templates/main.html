@@ -28,7 +28,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="col-sm">
-                    <a class="navbar-brand flex-grow-1" id="nav-content">
+                    <a href="{% url 'frontend' %}" class="navbar-brand flex-grow-1" id="nav-content">
                         {% block nav-content %}
                         <i class="fas fa-briefcase-medical"></i>  Medic Care
                         {% endblock nav-content %}
@@ -70,7 +70,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="logoutModalLabel"><i class="fas fa-sign-out-alt"></i>  Logout
                     </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
