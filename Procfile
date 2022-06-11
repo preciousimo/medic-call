@@ -1,0 +1,1 @@
+web: gunicorn medic_call.wsgi
