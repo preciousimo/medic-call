@@ -1,1 +1,1 @@
-web: gunicorn medic_call.wsgi
+web: gunicorn medic_call.asgi

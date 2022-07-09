@@ -84,7 +84,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'medic_call.wsgi.application'
+# WSGI_APPLICATION = 'medic_call.wsgi.application'
+ASGI_APPLICATION = 'medic_call.asgi.application'
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
