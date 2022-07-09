@@ -13,6 +13,7 @@ from pathlib import Path
 import os
 import django_heroku
 import dj_database_url
+
 from decouple import config, Csv
 from dotenv import load_dotenv
 load_dotenv()
@@ -28,12 +29,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
+# SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", cast=bool)
 
-ALLOWED_HOSTS = ['.herokuapp.com','localhost','127.0.0.1']
+# ALLOWED_HOSTS = ['.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
     
     'base',
     
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -82,6 +85,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'medic_call.wsgi.application'
+
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Database
