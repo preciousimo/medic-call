@@ -52,6 +52,28 @@ python manage.py runserver
 
 #
 
+### App Preview :
+
+<table width="100%"> 
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+  Medic_call Home Page
+</p>
+<img src="https://user-images.githubusercontent.com/47305153/186616021-de65d4d5-29b7-40db-b95f-ef7914329e2d.PNG">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+  Login Page
+</p>
+<img src="https://user-images.githubusercontent.com/47305153/186616038-145e5e32-965c-4125-a168-cd62521a324f.PNG">  
+</td>
+</table>
+
+
 ## Documentation
 You can check up django documentation page for any further information.
 [Django Docs](https://docs.djangoproject.com/en/4.0/)
