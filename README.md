@@ -2,39 +2,55 @@
 While buiding another name inspiration came which is MedicCare.🙂🙃
 Medic_call helps register complete patient information. It captures and stores the medical history, treatment required, details of their previous visits, upcoming appointments if any, reports, insurance details and more
 
-# Cloning the repository
+### Cloning the repository
+
 --> Clone the repository using the command below :
+```bash
+git clone https://github.com/preciousimo/medic_call.git
 
-    git clone https://github.com/preciousimo/medic_call
---> Move into the directory where we have the project files :
+```
 
-    cd medic_call
+--> Move into the directory where we have the project files : 
+```bash
+cd medic_call
 
-# Create a virtual environment
---> Install virtualenv first:
+```
 
-    pip install virtualenv
---> Create virtual environment:
+--> Create a virtual environment :
+```bash
+# Let's install virtualenv first
+pip install virtualenv
 
-    virtualenv envname
+# Then we create our virtual environment
+virtualenv envname
+
+```
+
 --> Activate the virtual environment :
+```bash
+envname\scripts\activate
 
-    envname\scripts\activate
+```
 
-# Install the requirements :
-    pip install -r requirements.txt
+--> Install the requirements :
+```bash
+pip install -r requirements.txt
 
-# Migrate Database
-    python manage.py migrate
+```
 
-# Create Super User
-    python manage.py createsuperuser
+#
 
-# To run the App, use :
-    python manage.py runserver
-Then, the development server will be started at http://127.0.0.1:8000/
-    
-⚠ Please note that this setup is for windows
+### Running the App
+
+--> To run the App, we use :
+```bash
+python manage.py runserver
+
+```
+
+> ⚠ Then, the development server will be started at http://127.0.0.1:8000/
+
+#
 
 ## Documentation
 You can check up django documentation page for any further information.
