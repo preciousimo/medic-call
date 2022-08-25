@@ -38,6 +38,18 @@ pip install -r requirements.txt
 
 ```
 
+--> Migrate Database
+```bash
+python manage.py migrate
+
+```
+
+--> Create Super User
+```bash
+python manage.py createsuperuser
+
+```
+
 #
 
 ### Running the App
