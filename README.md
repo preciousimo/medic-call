@@ -2,39 +2,89 @@
 While buiding another name inspiration came which is MedicCare.🙂🙃
 Medic_call helps register complete patient information. It captures and stores the medical history, treatment required, details of their previous visits, upcoming appointments if any, reports, insurance details and more
 
-# Cloning the repository
+### Cloning the repository
+
 --> Clone the repository using the command below :
+```bash
+git clone https://github.com/preciousimo/medic_call.git
 
-    git clone https://github.com/preciousimo/medic_call
---> Move into the directory where we have the project files :
+```
 
-    cd medic_call
+--> Move into the directory where we have the project files : 
+```bash
+cd medic_call
 
-# Create a virtual environment
---> Install virtualenv first:
+```
 
-    pip install virtualenv
---> Create virtual environment:
+--> Create a virtual environment :
+```bash
+# Let's install virtualenv first
+pip install virtualenv
 
-    virtualenv envname
+# Then we create our virtual environment
+virtualenv envname
+
+```
+
 --> Activate the virtual environment :
+```bash
+envname\scripts\activate
 
-    envname\scripts\activate
+```
 
-# Install the requirements :
-    pip install -r requirements.txt
+--> Install the requirements :
+```bash
+pip install -r requirements.txt
 
-# Migrate Database
-    python manage.py migrate
+```
 
-# Create Super User
-    python manage.py createsuperuser
+--> Migrate Database
+```bash
+python manage.py migrate
 
-# To run the App, use :
-    python manage.py runserver
-Then, the development server will be started at http://127.0.0.1:8000/
-    
-⚠ Please note that this setup is for windows
+```
+
+--> Create Super User
+```bash
+python manage.py createsuperuser
+
+```
+
+#
+
+### Running the App
+
+--> To run the App, we use :
+```bash
+python manage.py runserver
+
+```
+
+> ⚠ Then, the development server will be started at http://127.0.0.1:8000/
+
+#
+
+### App Preview :
+
+<table width="100%"> 
+<tr>
+<td width="50%">      
+&nbsp; 
+<br>
+<p align="center">
+  Medic_call Home Page
+</p>
+<img src="https://user-images.githubusercontent.com/47305153/186616021-de65d4d5-29b7-40db-b95f-ef7914329e2d.PNG">
+</td> 
+<td width="50%">
+<br>
+<p align="center">
+  Login Page
+</p>
+<img src="https://user-images.githubusercontent.com/47305153/186616038-145e5e32-965c-4125-a168-cd62521a324f.PNG">  
+</td>
+</table>
+
 
 ## Documentation
 You can check up django documentation page for any further information.
