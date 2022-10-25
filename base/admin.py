@@ -1,4 +1,3 @@
-from tkinter.ttk import Style
 from django.contrib import admin
 from base.models import Patient, Support
 from django.utils.html import format_html
