@@ -139,5 +139,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-CSRF_TRUSTED_ORIGINS = ['https://railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://medic-call-production.up.railway.app']
 # django_heroku.settings(locals())
